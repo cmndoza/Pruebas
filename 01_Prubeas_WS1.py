@@ -25,7 +25,8 @@ with open(txt_curp, 'r') as arch_curp:
     curps = arch_curp.readlines()
 curps = [val2.strip() for val2 in curps]
 posc = 0
-while posc <= len(nsss)-1:
+extension = len(nsss)
+while posc <= (extension-1):
     '''VARIABLES INPUT'''
     nss = str(nsss[posc])
     curp = str(curps[posc])
@@ -52,9 +53,11 @@ while posc <= len(nsss)-1:
     observaciones.append(response['observaciones'])
     #print(response)
     posc = posc + 1
+    print ("Ahí voy, ¬.¬ Llevo", posc, "de", extension)
 resultados  = {'nss_capturada':nsss, 'curp_capturada':curps, 'clave_de_error':claves_error,'mensaje_de_error':mensajes_error,
                'cod_resultado':codigos_resultado,'motivo_de_rechazo':motivos_rechazo,'curp_response':curp_resp,'primer_apellido':primer_apellido,
                'segundo_apellido':segundo_apelido,'nombre':nombre,'nss_response':nss_response,'fecha_de_baja':fecha_de_baja,
                'observaciones':observaciones}
 matriz_resultados = pd.DataFrame(resultados)
-matriz_resultados.to_csv('resultados_ws1.txt', index=False, sep='\t')
+#matriz_resultados.to_csv('resultados_ws1.txt', index=False, sep='\t')
+matriz_resultados.to_csv('resultados_ws1.txt', index=False, sep='|')
