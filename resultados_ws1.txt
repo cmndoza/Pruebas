@@ -1,0 +1,3 @@
+	nss_capturada	curp_capturada	clave_de_error	mensaje_de_error	cod_resultado	motivo_de_rechazo	curp_response	primer_apellido	segundo_apellido	nombre	nss_response	fecha_de_baja	observaciones
+0	13786102148	OEGG630528HHGRNR09			01		OEGG630528HHGRNR09	ORTEGA	GONZALEZ	GERMAN	13786102148	28/02/2023	
+1	21724701749	MAGC470807HBCCRR09			01		MAGC470807HBCCRR09	MACHADO	GERARDO	CARLOS	21724701749	29/08/2023	
