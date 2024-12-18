@@ -1,0 +1,2 @@
+nss_capturada|curp_capturada|clave_de_error|mensaje_de_error|cod_resultado|motivo_de_rechazo|curp_response|primer_apellido|segundo_apellido|nombre|nss_response|fecha_de_baja|observaciones
+01008122101|PIHA811124MDFXRN02|||01||PIHA811124MDFXRN02|PIÑON|HERNANDEZ|MARIA ANTONIA|01008122101|04/01/2022|

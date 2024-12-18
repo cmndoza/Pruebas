@@ -1,10 +1,9 @@
 from zeep import Client
 import json
 import pandas as pd
-#import numpy as np
 from datetime import datetime, timedelta
-txt_nss = 'dat_nss.txt'
-txt_curp = 'dat_curp.txt'
+txt_nss_ws1 = 'dat_nss_ws1.txt'
+txt_curp_ws1 = 'dat_curp_ws1.txt'
 nsss = []
 curps = []
 claves_error = []
@@ -18,10 +17,10 @@ nombre = []
 nss_response = []
 fecha_de_baja = []
 observaciones = []
-with open(txt_nss, 'r') as arch_nss:
+with open(txt_nss_ws1, 'r') as arch_nss:
     nsss = arch_nss.readlines()
 nsss = [val1.strip() for val1 in nsss]
-with open(txt_curp, 'r') as arch_curp:
+with open(txt_curp_ws1, 'r') as arch_curp:
     curps = arch_curp.readlines()
 curps = [val2.strip() for val2 in curps]
 posc = 0
@@ -30,8 +29,8 @@ while posc <= (extension-1):
     '''VARIABLES INPUT'''
     nss = str(nsss[posc])
     curp = str(curps[posc])
-    inst = str("01")
-    fecha = str("18/12/2024 00:00:00")
+    inst_recep = str("01")
+    fecha = datetime.strftime(datetime.today(), "%d/%m/%Y %H:%M:%S")
     mail = str("carlos.mendoza@syesoftware.com")
     ########################################################################################################### URL del archivo WSDL del servicio
     #wsdl = "http://172.16.23.206:80/WSCuentaIndividualSISEC/WSCuentaIndividualSISEC?wsdl" #PRODUCCION
@@ -39,7 +38,7 @@ while posc <= (extension-1):
             # Crear el cliente SOAP
     client = Client(wsdl=wsdl)
             # Llamar a un método del servicio
-    response = client.service.getEstatusAsegurado(institutoReceptor=inst,nss=nss,curp=curp,fechaTramite=fecha,correo=mail)
+    response = client.service.getEstatusAsegurado(institutoReceptor=inst_recep,nss=nss,curp=curp,fechaTramite=fecha,correo=mail)
     claves_error.append(response['claveError'])
     mensajes_error.append(response['mensajeError'])
     codigos_resultado.append(response['codigoResultado'])
